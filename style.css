@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Ubuntu&display=swap');
+html {
+    height: 100vh;
+}
+body {
+    background-color: #181818;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+p {
+    font-family: "Space Grotesk";
+    color: white;
+}
+.cat {
+    height: 100px;
+    cursor: pointer;
+    border-radius: 5%;
+}
+.cat:active {
+    -webkit-user-drag: none;
+}
+#points {
+    color: white;
+    font-family: "Space Grotesk";
+}
+.shop {
+    position: absolute;
+    width: 300px;
+    right: 0px;
+    top: 0px;
+    background-color: #222222;
+    color: white;
+    height: 100%;
+}
+.shop-title {
+    background-color: #1c1c1c;
+    height: 65px;
+    border: 1px solid transparent;
+}
+#shop-title {
+    line-height: 65px;
+    text-align: center;
+    font-family: "Space Grotesk";
+    margin-top: 0px;
+    font-size: 25px;
+}
+.shop-section {
+    transition: background .3s ease;
+    cursor: pointer;
+    background: #292929;
+    height: 65px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.shop-section-text {
+    font-size: 25px;
+    margin-top: 0px;
+    height: 65px;
+    border: 1px solid transparent;
+    display: flex;
+}
+.text {
+    margin-top: 0px;
+    line-height: 65px;
+}
+.light-text {
+    margin-top: 0px;
+    line-height: 65px;
+    color: #525252;
+    margin-left: auto;
+}
+.shop-section:hover {
+    transition: background .3s ease;
+    background: #2e2e2e;
+}
