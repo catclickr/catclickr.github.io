@@ -10,21 +10,27 @@ body {
     box-sizing: border-box;
     border: 1px solid transparent;
 }
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: calc(100% - 300px);
+    box-sizing: border-box;
+}
 p {
     font-family: "Space Grotesk";
     color: white;
 }
 .cat {
-    height: 100px;
+    height: 175px;
     cursor: pointer;
     border-radius: 5%;
 }
 .cat:active {
+    transition: .4 ease;
     -webkit-user-drag: none;
-}
-#points {
-    color: white;
-    font-family: "Space Grotesk";
+    scale: 0.9;
 }
 .shop {
     position: absolute;
@@ -76,4 +82,16 @@ p {
 .shop-section:hover {
     transition: background .3s ease;
     background: #2e2e2e;
+}
+#cats {
+    position: absolute;
+    font-size: 30px;
+    left: 10px;
+    top: -20px;
+}
+#cats-count {
+    color: aqua;
+}
+#cats-per-second {
+    display: none;
 }

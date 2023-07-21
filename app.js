@@ -12,11 +12,11 @@ $(document).ready(function() {
         },
         "birdy": {
             "count": 0,
-            "price": 100
+            "price": 50
         },
         "dot": {
             "count": 0,
-            "price": 50,
+            "price": 75,
         }
     }
     function set_shop() {
@@ -36,23 +36,26 @@ $(document).ready(function() {
 
     $(".update-shop").click(set_shop());
 
-    item_interval("mouse", 1);
-    item_interval("birdy", 5);
+    item_interval("mouse", 2);
+    item_interval("birdy", 10);
 
     function item_interval(shop_item, cats_per_second) {
         $(`.${shop_item}`).click(function() {
             items[shop_item]["count"]++;
-            if (cats>=items[`${shop_item}`]["price"]) {
-                cats-=items[`${shop_item}`]["price"];
-                items[`${shop_item}`]["count"]++;
-                items[`${shop_item}`]["price"]+=Math.floor(items[`${shop_item}`]["price"]*1.6);
+            if (cats>=items[shop_item]["price"]) {
+                cats-=items[shop_item]["price"];
+                items[shop_item]["price"]+=Math.floor(items[shop_item]["price"]*1.6);
                 $(`#${shop_item}_price`).text(`$${items[`${shop_item}`]["price"]}`);
+
+                $(`.${shop_item}_count`).text(items[shop_item]["count"]);
      
                 setInterval(function() {
                     console.log(`${shop_item} interval`);
                     cats+=cats_per_second;
-                    $("#cats").text(`Cats: ${cats}`);
-                }, (items[`${shop_item}`]["count"]==0?100000:1000/items[`${shop_item}`]["count"]));
+                    $("#cats-count").text(`${cats}`);
+                }, (items[`${shop_item}`]["count"]==0?100000:1000/items[shop_item]["count"]));
+
+                set_shop();
             } else {
                 alert("Not enough cats!");
             }
@@ -67,8 +70,10 @@ $(document).ready(function() {
         if (cats>=items[shop_item]["price"]) {
             cats-=items[shop_item]["price"];
             cats_per_click*=multiplier;
-            items[shop_item]["price"]*=3;
-            $("#dot_price").text(`$${items[shop_item]["price"]}`);
+            items[shop_item]["price"]*=5;
+            items[shop_item]["count"]++;
+            $(`#${shop_item}_count`).text(items[shop_item]["count"]);
+            $(`#${shop_item}_price`).text(`$${items[shop_item]["price"]}`);
         } else {
             alert("Not enough cats!");
         }
@@ -78,7 +83,7 @@ $(document).ready(function() {
     $(".cat").mousedown(function() {
         $(this).attr("src", "pop_cat_open.jpg");
         cats+=cats_per_click;
-        $("#cats").text(`Cats: ${cats}`);
+        $("#cats-count").text(`${cats}`);
     });
     $(".cat").mouseup(function() {
         $(this).attr("src", "pop_cat_closed.jpg");
