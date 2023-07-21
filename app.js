@@ -88,4 +88,10 @@ $(document).ready(function() {
     $(".cat").mouseup(function() {
         $(this).attr("src", "pop_cat_closed.jpg");
     });
+
+    $(window).mousemove(function(e) {
+        $("#heart").css({
+            "transform": `translate(${e.clientX}px, ${e.clientY}px)`
+        });
+    });
 });

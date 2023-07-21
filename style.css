@@ -9,6 +9,7 @@ body {
     height: 100%;
     box-sizing: border-box;
     border: 1px solid transparent;
+    overflow: hidden;
 }
 .main {
     display: flex;
@@ -94,4 +95,8 @@ p {
 }
 #cats-per-second {
     display: none;
+}
+#heart {
+    height: 25px;
+    pointer-events: none;
 }
